@@ -1,16 +1,17 @@
 import { demoProducts } from "@/lib/demo-products"
-import Image from "next/image"
 import type { Metadata } from "next"
+import Image from "next/image"
+import CustomLinkButton from "@/components/CustomLinkButton"
+import ScrollAnchor from "@/components/layout/ScrollAnchor"
 import IndexPartnerUsInfo from "@/components/IndexPartnerUsInfo"
 import ContactForm from "@/components/ContactForm"
-import CustomLinkButton from "@/components/CustomLinkButton"
-import ScrollAnchor from "@/components/ScrollAnchor"
-import CertificateIcon from "@/app/assects/images/lineicons_certificate-badge-1.svg"
-import ChartIcon from "@/app/assects/images/ix_analyze.svg"
-import PeopleIcon from "@/app/assects/images/grommet-icons_group.svg"
-import ShakeHandIcon from "@/app/assects/images/material-symbols-light_handshake-outline-rounded.svg"
-import BuildingIcon from "@/app/assects/images/clarity_building-line.svg"
-import BankingIcon from "@/app/assects/images/fluent_building-bank-28-regular.svg"
+
+import CertificateIcon from "@/app/assects/icons/certificate.svg"
+import AnalyzeIcon from "@/app/assects/icons/analyze.svg"
+import GroupIcon from "@/app/assects/icons/group.svg"
+import ShakeHandIcon from "@/app/assects/icons/handshake.svg"
+import BuildingIcon from "@/app/assects/icons/building.svg"
+import BankIcon from "@/app/assects/icons/bank.svg"
 
 import skinGraftingSurgeryImg from "@/app/assects/images/Professional skin grafting surgery.webp"
 import sutureSurgery from "@/app/assects/images/Suture surgery.jpg"
@@ -123,12 +124,12 @@ export default function Page() {
               content: "Experienced in Taiwan FDA (TFDA) processes and hospital entry."
             },
             {
-              iconImage: ChartIcon,
+              iconImage: AnalyzeIcon,
               title: "Market Strategy & Positioning",
               content: "Support product launch and market adoption."
             },
             {
-              iconImage: PeopleIcon,
+              iconImage: GroupIcon,
               title: "Sales & Clinical Support",
               content: "Supports the full process from product introduction to clinical use."
             }
@@ -154,7 +155,7 @@ export default function Page() {
               content: "Reliable logistics with full market coverage."
             },
             {
-              iconImage: BankingIcon,
+              iconImage: BankIcon,
               title: "Clinical & Academic Connections",
               content: "Established relationships with key opinion leaders."
             }
@@ -194,30 +195,28 @@ export default function Page() {
       </section>
 
       {/* Contact */}
-      <section className="relative min-h-[60svh] md:h-[50svh] overflow-hidden content-center px-5 py-10 md:py-0">
-        <ScrollAnchor targetId="contactUs" className="group">
-          <Image
-            src={contactUsBG_shakeHand_mobile}
-            alt="Contact us Background - Shake Hand Mobile"
-            fill
-            className="object-cover md:hidden"
-          />
-          <Image
-            src={contactUsBG_shakeHand}
-            alt="Contact us Background - Shake Hand"
-            fill
-            className="hidden object-cover md:block"
-          />
+      <ScrollAnchor targetId="contactUs" className="group relative block  min-h-[60svh] md:h-[50svh] overflow-hidden content-center px-5 py-10 md:py-0">
+        <Image
+          src={contactUsBG_shakeHand_mobile}
+          alt="Contact us Background - Shake Hand Mobile"
+          fill
+          className="object-cover md:hidden"
+        />
+        <Image
+          src={contactUsBG_shakeHand}
+          alt="Contact us Background - Shake Hand"
+          fill
+          className="hidden object-cover md:block"
+        />
 
-          <div className="relative flex flex-col gap-6 md:flex-row md:items-center md:justify-between font-mono text-lg md:text-2xl" data-aos="fade-up">
-            <div className="flex flex-col items-start gap-3 text-primary font-bold group-hover:translate-x-2 transition duration-300">
-              <p className="bg-white py-1 px-3">Looking for a reliable partner in Taiwan?</p>
-              <p className="bg-white py-1 px-3">Let’s work together!</p>
-            </div>
-            <button className="self-start md:self-auto bg-primary text-white font-semibold py-2 px-6 md:py-1 md:px-8 group-hover:bg-[#0e2561] transition duration-300 group-hover:-translate-x-2">Contact us</button>
+        <div className="relative flex flex-col gap-6 md:flex-row md:items-center md:justify-between font-mono text-lg md:text-2xl" data-aos="fade-up">
+          <div className="flex flex-col items-start gap-3 text-primary font-bold group-hover:translate-x-2 transition duration-300">
+            <p className="bg-white py-1 px-3">Looking for a reliable partner in Taiwan?</p>
+            <p className="bg-white py-1 px-3">Let’s work together!</p>
           </div>
-        </ScrollAnchor>
-      </section>
+          <button className="self-start md:self-auto bg-primary text-white font-semibold py-2 px-6 md:py-1 md:px-8 group-hover:bg-[#0e2561] transition duration-300 group-hover:-translate-x-2">Contact us</button>
+        </div>
+      </ScrollAnchor>
 
       {/* Contact Form */}
       <section className="py-20 bg-[#253B72] scroll-mt-20" id="contactUs">

@@ -1,13 +1,14 @@
-import Image from "next/image"
 import type { Metadata } from "next"
+import Image from "next/image"
 import SubPageBanner from "@/components/SubPageBanner"
 import banner from "@/app/assects/images/Contact us background - shake hand.jpg"
-import CertificateIcon from "@/app/assects/images/lineicons_certificate-badge-1.svg"
-import ChartIcon from "@/app/assects/images/ix_analyze.svg"
-import PeopleIcon from "@/app/assects/images/grommet-icons_group.svg"
-import ShakeHandIcon from "@/app/assects/images/material-symbols-light_handshake-outline-rounded.svg"
-import BuildingIcon from "@/app/assects/images/clarity_building-line.svg"
-import BankingIcon from "@/app/assects/images/fluent_building-bank-28-regular.svg"
+
+import CertificateIcon from "@/app/assects/icons/certificate.svg"
+import AnalyzeIcon from "@/app/assects/icons/analyze.svg"
+import GroupIcon from "@/app/assects/icons/group.svg"
+import ShakeHandIcon from "@/app/assects/icons/handshake.svg"
+import BuildingIcon from "@/app/assects/icons/building.svg"
+import BankIcon from "@/app/assects/icons/bank.svg"
 
 export const metadata: Metadata = {
   title: "Why Partner With Us",
@@ -66,12 +67,12 @@ const featureList = [
       {
         subtitle: "Market Strategy & Positioning",
         content: "We understand the local market and develop targeted strategies to support successful product launches and market adoption.",
-        icon: ChartIcon
+        icon: AnalyzeIcon
       },
       {
         subtitle: "Sales & Clinical Support",
         content: "Our experienced team supports the full process from product introduction to clinical use, working closely with healthcare professionals.",
-        icon: PeopleIcon
+        icon: GroupIcon
       }
     ]
   },
@@ -91,7 +92,7 @@ const featureList = [
       {
         subtitle: "Clinical & Academic Connections",
         content: "We maintain close relationships with key medical associations such as the Taiwan Surgical Association, the Taiwan Society of Plastic Surgery, supporting and the Taiwan Society for Burn Injuries and Wound Healing Association.<br />These connections facilitate effective communication of clinical outcomes and help accelerate product adoption in the market.",
-        icon: BankingIcon
+        icon: BankIcon
       }
     ]
   }

@@ -4,9 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { Controller, useForm } from "react-hook-form"
 import * as z from "zod"
 
-import { Button } from "@/components/ui/button"
-
-import { FieldError } from "@/components/ui/field"
+import { FieldError } from "@/components/FieldError"
 
 const formSchema = z.object({
     name: z
@@ -187,23 +185,22 @@ export default function ContactForm() {
             </form>
 
             <div className="text-right">
-                <Button
+                <button
                     type="button"
-                    variant="outline"
                     onClick={() => form.reset()}
                     disabled={form.formState.isSubmitting}
-                    className="cursor-pointer transition mr-4 text-white font-mono text-base bg-[#152652] hover:bg-[#07153A] hover:text-white border-0 py-4 px-10 rounded-none"
+                    className="cursor-pointer transition mr-4 text-white font-mono text-base bg-[#152652] hover:bg-[#07153A] hover:text-white border-0 py-1 w-[8rem] rounded-none"
                 >
                     Reset
-                </Button>
-                <Button
+                </button>
+                <button
                     type="submit"
                     form="form-rhf-demo"
                     disabled={form.formState.isSubmitting}
-                    className="cursor-pointer transition text-white font-mono text-base bg-[#B37D5F] hover:bg-[#865d46] py-4 px-10 rounded-none"
+                    className="cursor-pointer transition text-white font-mono text-base bg-[#B37D5F] hover:bg-[#865d46] py-1 w-[8rem] rounded-none"
                 >
                     {form.formState.isSubmitting ? "Submitting..." : "Submit"}
-                </Button>
+                </button>
             </div>
         </>
     )

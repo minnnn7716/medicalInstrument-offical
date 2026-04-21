@@ -3,10 +3,9 @@ import type { Metadata } from "next"
 
 import "./globals.css"
 import "aos/dist/aos.css"
-import { ThemeProvider } from "@/components/theme-provider"
 import AosInitializer from "@/components/AosInitializer"
-import Navbar from "@/components/Navbar"
-import Footer from "@/components/Footer"
+import Navbar from "@/components/layout/Navbar"
+import Footer from "@/components/layout/Footer"
 import LayoutContentOffset from "../components/LayoutContentOffset"
 import { cn } from "@/lib/utils";
 
@@ -57,9 +56,7 @@ export default function RootLayout({
       <body suppressHydrationWarning>
         <AosInitializer />
         <Navbar />
-        <ThemeProvider>
           <LayoutContentOffset>{children}</LayoutContentOffset>
-        </ThemeProvider>
         <Footer />
       </body>
     </html>
