@@ -213,3 +213,12 @@
   @media (width >= 96rem) { max-width: 76rem; }
 }
 
+[data-sonner-toaster][data-sonner-theme='light'] {
+  --success-bg: #eaffea;
+  --success-border: #49b149;
+  --success-text: #105b10;
+  --error-bg: #f3d0d0;
+  --error-border: #b35757;
+  --error-text: #4b0e0e;
+}
+

@@ -1,5 +1,6 @@
 import { Geist_Mono, Inter, Roboto } from "next/font/google"
 import type { Metadata } from "next"
+import { Toaster } from "sonner"
 
 import "./globals.css"
 import "aos/dist/aos.css"
@@ -55,6 +56,18 @@ export default function RootLayout({
       
       <body suppressHydrationWarning>
         <AosInitializer />
+        <Toaster
+          position="bottom-center"
+          richColors
+          theme="light"
+          toastOptions={{
+            classNames: {
+              toast: "mt-6 border border-[#D8C1B4] shadow-lg",
+              title: "font-medium",
+              description: "text-sm text-[#4B5563]",
+            }
+          }}
+        />
         <Navbar />
           <LayoutContentOffset>{children}</LayoutContentOffset>
         <Footer />

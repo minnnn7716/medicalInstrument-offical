@@ -2,6 +2,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Controller, useForm } from "react-hook-form"
+import { toast } from "sonner"
 import * as z from "zod"
 
 import { FieldError } from "@/components/FieldError"
@@ -53,13 +54,12 @@ export default function ContactForm() {
                 throw new Error("Submit failed")
             }
 
-            // 成功後的處理
-            alert("Demo complete. No message was sent or stored.")
+            toast.success("Demo complete. No message was sent or stored.")
             form.reset()
 
         } catch (error) {
             console.error("Error!", error)
-            alert("送出失敗，請稍後再試。")
+            toast.error("送出失敗，請稍後再試。")
         }
     }
 
