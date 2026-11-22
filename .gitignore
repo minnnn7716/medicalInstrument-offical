@@ -29,14 +29,13 @@ yarn-error.log*
 pnpm-debug.log*
 
 # env files
-.env*.local
+.env*
+!.env.example
 
 # typescript
 *.tsbuildinfo
 next-env.d.ts
 
-# Portfolio privacy
-.env*
-!.env.example
-.portfolio-export/
+# Local tooling and portfolio exports
 .wrangler/
+.portfolio-export/
