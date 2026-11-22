@@ -1,4 +1,9 @@
 import { NextResponse } from "next/server"
 
-// Historical portfolio demo: no outbound requests and no storage.
-export async function POST() { return NextResponse.json({ ok: true, demo: true }) }
+// Portfolio demo: never forward messages to a real client service.
+export async function POST() {
+  return NextResponse.json(
+    { error: "Demo only. No messages are sent or stored." },
+    { status: 403 }
+  )
+}

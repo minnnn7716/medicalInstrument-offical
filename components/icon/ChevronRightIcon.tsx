@@ -1,23 +1,23 @@
 const ChevronRightIcon = ({
   size = 16,
-  color = '#000000',
+  color = "#000000",
   strokeWidth = 2,
-  background = 'transparent',
+  background = "transparent",
   opacity = 1,
   rotation = 0,
   shadow = 0,
   flipHorizontal = false,
   flipVertical = false,
-  padding = 0
+  padding = 0,
 }) => {
-  const transforms = [];
-  if (rotation !== 0) transforms.push(`rotate(${rotation}deg)`);
-  if (flipHorizontal) transforms.push('scaleX(-1)');
-  if (flipVertical) transforms.push('scaleY(-1)');
+  const transforms = []
+  if (rotation !== 0) transforms.push(`rotate(${rotation}deg)`)
+  if (flipHorizontal) transforms.push("scaleX(-1)")
+  if (flipVertical) transforms.push("scaleY(-1)")
 
-  const viewBoxSize = 24 + (padding * 2);
-  const viewBoxOffset = -padding;
-  const viewBox = `${viewBoxOffset} ${viewBoxOffset} ${viewBoxSize} ${viewBoxSize}`;
+  const viewBoxSize = 24 + padding * 2
+  const viewBoxOffset = -padding
+  const viewBox = `${viewBoxOffset} ${viewBoxOffset} ${viewBoxSize} ${viewBoxSize}`
 
   return (
     <svg
@@ -32,14 +32,24 @@ const ChevronRightIcon = ({
       strokeLinejoin="round"
       style={{
         opacity,
-        transform: transforms.join(' ') || undefined,
-        filter: shadow > 0 ? `drop-shadow(0 ${shadow}px ${shadow * 2}px rgba(0,0,0,0.3))` : undefined,
-        backgroundColor: background !== 'transparent' ? background : undefined
+        transform: transforms.join(" ") || undefined,
+        filter:
+          shadow > 0
+            ? `drop-shadow(0 ${shadow}px ${shadow * 2}px rgba(0,0,0,0.3))`
+            : undefined,
+        backgroundColor: background !== "transparent" ? background : undefined,
       }}
     >
-      <path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={strokeWidth} d="m9 6l6 6l-6 6"/>
+      <path
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={strokeWidth}
+        d="m9 6l6 6l-6 6"
+      />
     </svg>
-  );
-};
+  )
+}
 
-export default ChevronRightIcon;
+export default ChevronRightIcon

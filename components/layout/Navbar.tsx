@@ -6,23 +6,13 @@ import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
 import { Menu, X } from "lucide-react"
 
-import logo from "@/app/assects/images/demo-logo.svg"
 import { cn } from "@/lib/utils"
 
-const pendingContactScrollKey = "medical-instrument:scroll-contact-us"
-
-const clearHashFromUrl = () => {
-  if (!window.location.hash) {
-    return
-  }
-
-  window.history.replaceState(null, "", `${window.location.pathname}${window.location.search}`)
-}
-
-const scrollToContactUs = () => {
-  document.getElementById("contactUs")?.scrollIntoView({ behavior: "smooth" })
-  clearHashFromUrl()
-}
+import {
+  clearHashFromUrl,
+  pendingContactScrollKey,
+  scrollToContactUs,
+} from "@/lib/scroll"
 
 export default function Navbar() {
   const pathname = usePathname()
@@ -34,7 +24,8 @@ export default function Navbar() {
   const shouldUseDesktopWhiteBackground = !isHomePage || hasReachedAboutUs
   const shouldUseMobileWhiteBackground = !isHomePage || hasScrolledOnMobile
   const shouldUseDarkMobileMenu = isMobileMenuOpen
-  const shouldShowMobileBrandText = shouldUseDarkMobileMenu || shouldUseMobileWhiteBackground
+  const shouldShowMobileBrandText =
+    shouldUseDarkMobileMenu || shouldUseMobileWhiteBackground
 
   const handleHomeClick = (event: MouseEvent<HTMLAnchorElement>) => {
     setIsMobileMenuOpen(false)
@@ -48,7 +39,10 @@ export default function Navbar() {
     clearHashFromUrl()
   }
 
-  const handleNavLinkClick = (event: MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavLinkClick = (
+    event: MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
     setIsMobileMenuOpen(false)
 
     if (href !== "/contact-us") {
@@ -108,44 +102,57 @@ export default function Navbar() {
     <>
       <nav
         className={cn(
-          "fixed top-0 left-0 right-0 z-100 h-20 px-4 sm:px-10 2xl:px-12 py-2 flex items-center justify-between font-serif transition-[background-color,border-color,backdrop-filter] duration-300",
+          "fixed top-0 right-0 left-0 z-100 flex h-20 items-center justify-between px-4 py-2 font-serif transition-[background-color,border-color,backdrop-filter] duration-300 sm:px-10 2xl:px-12",
           shouldUseDarkMobileMenu
             ? "border-b border-white/10 bg-slate-950/78 text-white backdrop-blur-md"
             : cn(
-                shouldUseMobileWhiteBackground ? "bg-white text-slate-900" : "text-white",
+                shouldUseMobileWhiteBackground
+                  ? "bg-white text-slate-900"
+                  : "text-white",
                 shouldUseDesktopWhiteBackground
                   ? "md:bg-white md:text-slate-900"
-                  : "md:bg-transparent md:text-white",
-              ),
+                  : "md:bg-transparent md:text-white"
+              )
         )}
       >
-        <Link href="/" className="flex items-center gap-2" onClick={handleHomeClick}>
-          <Image src={logo} alt="Medical Instrument Logo" width={50} />
+        <Link
+          href="/"
+          className="flex items-center gap-2"
+          onClick={handleHomeClick}
+        >
+          <Image
+            src="/demo-logo.svg"
+            alt="Medical Instrument concept logo"
+            width={50}
+            height={50}
+          />
           <div
             className={cn(
-              "transition-[opacity,transform] duration-300 md:opacity-100 md:translate-y-0 md:text-slate-900",
+              "transition-[opacity,transform] duration-300 md:translate-y-0 md:text-slate-900 md:opacity-100",
               shouldShowMobileBrandText
-                ? "opacity-100 translate-y-0"
-                : "pointer-events-none -translate-y-1 opacity-0",
+                ? "translate-y-0 opacity-100"
+                : "pointer-events-none -translate-y-1 opacity-0"
             )}
           >
-            <h1 className="text-3xl font-extrabold leading-none">MEDICAL</h1>
-            <p className="text-sm leading-none">INSTRUMENT · PORTFOLIO DEMO</p>
+            <h1 className="text-3xl leading-none font-extrabold">MEDICAL</h1>
+            <p className="text-sm leading-none">INSTRUMENT · CONCEPT</p>
           </div>
         </Link>
 
         {/* Desktop Navigation */}
         <ul
           className={cn(
-            "hidden md:flex gap-2 text-base md:text-lg 2xl:text-xl transition-shadow duration-300 font-medium",
-            shouldUseDesktopWhiteBackground ? "text-slate-900" : "text-white text-shadow-lg/30",
+            "hidden gap-2 text-base font-medium transition-shadow duration-300 md:flex md:text-lg 2xl:text-xl",
+            shouldUseDesktopWhiteBackground
+              ? "text-slate-900"
+              : "text-white text-shadow-lg/30"
           )}
         >
           {navLinks.map((link) => (
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="inline-block px-3 hover:-translate-y-1 transition duration-300"
+                className="inline-block px-3 transition duration-300 hover:-translate-y-1"
                 onClick={(e) => handleNavLinkClick(e, link.href)}
               >
                 {link.label}
@@ -156,24 +163,19 @@ export default function Navbar() {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden flex items-center"
+          className="flex items-center md:hidden"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
           aria-expanded={isMobileMenuOpen}
           aria-controls="mobile-navigation"
         >
           {isMobileMenuOpen ? (
-            <X
-              className={cn(
-                "w-6 h-6",
-                "text-white",
-              )}
-            />
+            <X className={cn("h-6 w-6", "text-white")} />
           ) : (
             <Menu
               className={cn(
-                "w-6 h-6",
-                shouldUseMobileWhiteBackground ? "text-slate-900" : "text-white",
+                "h-6 w-6",
+                shouldUseMobileWhiteBackground ? "text-slate-900" : "text-white"
               )}
             />
           )}
@@ -184,11 +186,11 @@ export default function Navbar() {
       <div
         id="mobile-navigation"
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 overflow-hidden pt-20 md:hidden transition-[max-height,opacity,transform] duration-500 ease-out origin-top",
+          "fixed top-0 right-0 left-0 z-50 origin-top overflow-hidden pt-20 transition-[max-height,opacity,transform] duration-500 ease-out md:hidden",
           "bg-linear-to-b from-slate-950 via-slate-900 to-slate-800 shadow-[0_24px_48px_rgba(2,6,23,0.24)]",
           isMobileMenuOpen
-            ? "max-h-112 opacity-100 scale-y-100"
-            : "pointer-events-none max-h-0 opacity-0 scale-y-95",
+            ? "max-h-112 scale-y-100 opacity-100"
+            : "pointer-events-none max-h-0 scale-y-95 opacity-0"
         )}
       >
         <ul className="flex flex-col">
@@ -196,7 +198,7 @@ export default function Navbar() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="block px-4 py-3 border-b border-white/10 text-white transition duration-300 hover:bg-white/8"
+                className="block border-b border-white/10 px-4 py-3 text-white transition duration-300 hover:bg-white/8"
                 onClick={(e) => handleNavLinkClick(e, link.href)}
               >
                 {link.label}

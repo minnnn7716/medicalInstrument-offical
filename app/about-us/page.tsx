@@ -7,45 +7,59 @@ export const metadata: Metadata = {
 }
 
 export default function Page() {
-  return <>
-    <SubPageBanner title="About Us" imageUrl={banner} />
+  return (
+    <>
+      <SubPageBanner title="About Us" imageUrl={banner} />
 
-    <section className="container py-15 px-6">
-      <div className="mb-20 md:pl-8 md:pr-10" data-aos="fade-up">
-        <h2 className="mb-6 pl-6 leading-none font-serif font-extrabold text-primary text-4xl border-l-[6px] border-primary">About us</h2>
-        <p className="mb-6">
-          Medical Instrument is a Taiwan-based medical device distributor created for portfolio demonstration.
-          <br /><br />
-          We focus on introducing high-quality medical solutions to healthcare institutions across Taiwan. Our core areas include surgical implants, advanced wound care, and dermal regeneration.
-          <br /><br />
-          With long-term relationships in the healthcare sector, we support our partners in bringing products into real clinical use.
-          <br /><br />
-          Based in Taiwan, supporting market entry and expansion.
-        </p>
-      </div>
+      <section className="container px-6 py-15">
+        <div className="mb-20 md:pr-10 md:pl-8" data-aos="fade-up">
+          <h2 className="mb-6 border-l-[6px] border-primary pl-6 font-serif text-4xl leading-none font-extrabold text-primary">
+            About us
+          </h2>
+          <p className="mb-6">
+            Medical Instrument is a Taiwan-based medical device distributor
+            created for portfolio demonstration.
+            <br />
+            <br />
+            We focus on introducing high-quality medical solutions to healthcare
+            institutions across Taiwan. Our core areas include surgical
+            implants, advanced wound care, and dermal regeneration.
+            <br />
+            <br />
+            With long-term relationships in the healthcare sector, we support
+            our partners in bringing products into real clinical use.
+            <br />
+            <br />
+            Based in Taiwan, supporting market entry and expansion.
+          </p>
+        </div>
 
-      <div className="md:pl-8 md:pr-10 font-mono" data-aos="fade-up">
-        <h2 className="mb-10 pl-6 leading-none font-serif font-extrabold text-primary text-4xl border-l-[6px] border-primary">Company Milestones</h2>
+        <div className="font-mono md:pr-10 md:pl-8" data-aos="fade-up">
+          <h2 className="mb-10 border-l-[6px] border-primary pl-6 font-serif text-4xl leading-none font-extrabold text-primary">
+            Illustrative Milestones
+          </h2>
 
-        {
-          milestonesList.map(({ year, milestones }) => (
-            <ul className="pl-4 mb-6 last:mb-0" key={year}>
+          {milestonesList.map(({ year, milestones }) => (
+            <ul className="mb-6 pl-4 last:mb-0" key={year}>
               <li>
-                <h3 className="inline-block pl-4 pr-15 mb-4 text-xl bg-primary text-white font-medium">{year}</h3>
-                <ul className="list-disc list-inside">
+                <h3 className="mb-4 inline-block bg-primary pr-15 pl-4 text-xl font-medium text-white">
+                  {year}
+                </h3>
+                <ul className="list-inside list-disc">
                   {milestones.map((milestone, index) => (
                     <li key={index}>{milestone}</li>
                   ))}
                 </ul>
               </li>
             </ul>
-          ))
-        }
-      </div>
-    </section>
-  </>
+          ))}
+        </div>
+      </section>
+    </>
+  )
 }
 
+// Fictional timeline used only to demonstrate the page layout.
 const milestonesList = [
   {
     year: "2016",

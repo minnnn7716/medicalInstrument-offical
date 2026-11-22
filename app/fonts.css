@@ -1,0 +1,326 @@
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url(/fonts/da69e5d9e9576d30.woff2) format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url(/fonts/2d5523b07e76b595.woff2) format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(/fonts/ee9558be9f8a4d75.woff2) format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/a699af1dea30b799.woff2) format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/e45972c7e9f24dc3.woff2) format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/fonts/87e867b52640b3b3.woff2) format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/fonts/6f49e1b28bce7339.woff2) format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(/fonts/2f6c206f7c744148.woff2) format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url(/fonts/861da2b4255e09a6.woff2) format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 100;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(/fonts/efe1ff8d29a2a82e.woff2) format("truetype");
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 200;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(/fonts/5d1e33d79e1ac490.woff2) format("truetype");
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(/fonts/5639371f108fd32a.woff2) format("truetype");
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(/fonts/d8dc5a5f3c90f50e.woff2) format("truetype");
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(/fonts/c14c6f78e26d1c8e.woff2) format("truetype");
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(/fonts/1732806670364de1.woff2) format("truetype");
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(/fonts/17dbcf71ea4dcfbb.woff2) format("truetype");
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 800;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(/fonts/47060fa093a14751.woff2) format("truetype");
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 900;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(/fonts/c4c5cbe6fc321619.woff2) format("truetype");
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url(/fonts/0b126ffb591af3f4.woff2) format("truetype");
+}
+@font-face {
+  font-family: "Geist Mono";
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url(/fonts/aae7fdc7e9490cfd.woff2) format("truetype");
+}
+@font-face {
+  font-family: "Geist Mono";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(/fonts/e3481e94567757fd.woff2) format("truetype");
+}
+@font-face {
+  font-family: "Geist Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/706d7515d64b1e19.woff2) format("truetype");
+}
+@font-face {
+  font-family: "Geist Mono";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/e858776f9ad0d058.woff2) format("truetype");
+}
+@font-face {
+  font-family: "Geist Mono";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/fonts/7170a9ec07b3758b.woff2) format("truetype");
+}
+@font-face {
+  font-family: "Geist Mono";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/fonts/3846c19bc36bee47.woff2) format("truetype");
+}
+@font-face {
+  font-family: "Geist Mono";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(/fonts/f7d2961b86bf81b7.woff2) format("truetype");
+}
+@font-face {
+  font-family: "Geist Mono";
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url(/fonts/dd9a1dcfdcaf8784.woff2) format("truetype");
+}
+
+@font-face {
+  font-family: "Abhaya Libre";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/25d409d4d22585e6.woff2) format("truetype");
+}
+@font-face {
+  font-family: "Abhaya Libre";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/a5eef049c706ed55.woff2) format("truetype");
+}
+@font-face {
+  font-family: "Abhaya Libre";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/fonts/ea8251c7764c4d5e.woff2) format("truetype");
+}
+@font-face {
+  font-family: "Abhaya Libre";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/fonts/b48426bacc9ebde0.woff2) format("truetype");
+}
+@font-face {
+  font-family: "Abhaya Libre";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(/fonts/231e9b3e214ad5bd.woff2) format("truetype");
+}
+
+@font-face {
+  font-family: "Anuphan";
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url(/fonts/1db0ab087bc75321.woff2) format("truetype");
+}
+@font-face {
+  font-family: "Anuphan";
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url(/fonts/455619aea7391e94.woff2) format("truetype");
+}
+@font-face {
+  font-family: "Anuphan";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(/fonts/538c03325d27cbae.woff2) format("truetype");
+}
+@font-face {
+  font-family: "Anuphan";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/c68eecfd77663dda.woff2) format("truetype");
+}
+@font-face {
+  font-family: "Anuphan";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/6d2d00ad8d6a34ff.woff2) format("truetype");
+}
+@font-face {
+  font-family: "Anuphan";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/fonts/a762ff4a599094c5.woff2) format("truetype");
+}
+@font-face {
+  font-family: "Anuphan";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/fonts/ebae81328732b084.woff2) format("truetype");
+}
+
+@font-face {
+  font-family: "Fragment Mono";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/910abe3fec747153.woff2) format("truetype");
+}
+@font-face {
+  font-family: "Fragment Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/d3cb901af65bf837.woff2) format("truetype");
+}
+
+@font-face {
+  font-family: Inter Fallback;
+  src: local(Arial);
+  ascent-override: 90.44%;
+  descent-override: 22.52%;
+  line-gap-override: 0%;
+  size-adjust: 107.12%;
+}
+@font-face {
+  font-family: Roboto Fallback;
+  src: local(Arial);
+  ascent-override: 92.98%;
+  descent-override: 24.47%;
+  line-gap-override: 0%;
+  size-adjust: 99.78%;
+}
+@font-face {
+  font-family: Geist Mono Fallback;
+  src: local(Arial);
+  ascent-override: 74.67%;
+  descent-override: 21.92%;
+  line-gap-override: 0%;
+  size-adjust: 134.59%;
+}
