@@ -53,7 +53,7 @@ export default function CustomLinkButton({
 
   return (
     <Link
-      href={href}
+      href={href === "/contact-us" ? "/#contactUs" : href}
       target={isNewBlank ? "_blank" : "_self"}
       rel={isNewBlank ? "noopener noreferrer" : undefined}
       onClick={handleClick}

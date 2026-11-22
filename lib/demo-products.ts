@@ -1,10 +1,12 @@
+import { assetPath } from "@/lib/paths"
+
 // Fictional examples; no client or manufacturer data is used.
 export const demoProducts = [
   {
     id: "wound-care",
     brand: "Wound Care",
     productName: "Advanced Wound Dressing",
-    image: "/demo-wound-care.svg",
+    image: assetPath("/demo-wound-care.svg"),
     brandUrl: "/#contactUs",
     description: [
       "Fictional product content created for this portfolio demonstration.",
@@ -16,7 +18,7 @@ export const demoProducts = [
     id: "surgical",
     brand: "Surgery",
     productName: "Surgical Support System",
-    image: "/demo-surgical.svg",
+    image: assetPath("/demo-surgical.svg"),
     brandUrl: "/#contactUs",
     description: [
       "Fictional product content created for this portfolio demonstration.",
@@ -28,7 +30,7 @@ export const demoProducts = [
     id: "skin-care",
     brand: "Skin Care",
     productName: "Dermal Care Collection",
-    image: "/demo-skin-care.svg",
+    image: assetPath("/demo-skin-care.svg"),
     brandUrl: "/#contactUs",
     description: [
       "Fictional product content created for this portfolio demonstration.",
@@ -40,7 +42,7 @@ export const demoProducts = [
     id: "irrigation",
     brand: "Equipment",
     productName: "Precision Irrigation System",
-    image: "/demo-irrigation.svg",
+    image: assetPath("/demo-irrigation.svg"),
     brandUrl: "/#contactUs",
     description: [
       "Fictional product content created for this portfolio demonstration.",
@@ -52,7 +54,7 @@ export const demoProducts = [
     id: "clinical",
     brand: "Clinical",
     productName: "Clinical Sample Kit",
-    image: "/demo-clinical.svg",
+    image: assetPath("/demo-clinical.svg"),
     brandUrl: "/#contactUs",
     description: [
       "Fictional product content created for this portfolio demonstration.",

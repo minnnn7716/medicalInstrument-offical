@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import SubPageBanner from "@/components/SubPageBanner"
 import banner from "@/app/assects/images/Product experience - banner.jpg"
 import Image from "next/image"
+import Link from "next/link"
 import { demoProducts } from "@/lib/demo-products"
 
 export const metadata: Metadata = {
@@ -35,7 +36,7 @@ export default function Page() {
                 >
                   <div className="relative w-full md:w-45 md:shrink-0">
                     {brandUrl ? (
-                      <a
+                      <Link
                         href={brandUrl}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -47,7 +48,7 @@ export default function Page() {
                           width={320}
                           height={320}
                         />
-                      </a>
+                      </Link>
                     ) : (
                       <div className="block h-full w-full">
                         <Image
@@ -63,7 +64,7 @@ export default function Page() {
                   <div>
                     {brandUrl ? (
                       <>
-                        <a
+                        <Link
                           href={brandUrl ?? "#"}
                           target="_blank"
                           rel="noopener noreferrer"
@@ -75,7 +76,7 @@ export default function Page() {
                           <h4 className="content-center font-serif text-2xl font-bold">
                             {productName}
                           </h4>
-                        </a>
+                        </Link>
                       </>
                     ) : (
                       <>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { demoProducts } from "@/lib/demo-products"
 import Image from "next/image"
+import Link from "next/link"
 import CustomLinkButton from "@/components/CustomLinkButton"
 import ScrollAnchor from "@/components/layout/ScrollAnchor"
 import IndexPartnerUsInfo from "@/components/IndexPartnerUsInfo"
@@ -204,7 +205,7 @@ export default function Page() {
                 key={`${index}-${product.productName}`}
                 className="mb-8 last:mb-3"
               >
-                <a
+                <Link
                   href={product.url}
                   className="group flex flex-col gap-3 leading-tight transition-transform duration-300 hover:translate-x-1 md:flex-row md:gap-4 md:leading-none"
                 >
@@ -214,7 +215,7 @@ export default function Page() {
                   <h4 className="content-center font-serif text-2xl font-bold md:text-xl">
                     {product.productName}
                   </h4>
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

@@ -2,6 +2,7 @@
 
 import { MouseEvent, useEffect, useState } from "react"
 import Image from "next/image"
+import { assetPath } from "@/lib/paths"
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
 import { Menu, X } from "lucide-react"
@@ -121,7 +122,7 @@ export default function Navbar() {
           onClick={handleHomeClick}
         >
           <Image
-            src="/demo-logo.svg"
+            src={assetPath("/demo-logo.svg")}
             alt="Medical Instrument concept logo"
             width={50}
             height={50}
@@ -151,7 +152,7 @@ export default function Navbar() {
           {navLinks.map((link) => (
             <li key={link.href}>
               <Link
-                href={link.href}
+                href={link.href === "/contact-us" ? "/#contactUs" : link.href}
                 className="inline-block px-3 transition duration-300 hover:-translate-y-1"
                 onClick={(e) => handleNavLinkClick(e, link.href)}
               >
@@ -197,7 +198,7 @@ export default function Navbar() {
           {navLinks.map((link) => (
             <li key={link.href}>
               <Link
-                href={link.href}
+                href={link.href === "/contact-us" ? "/#contactUs" : link.href}
                 className="block border-b border-white/10 px-4 py-3 text-white transition duration-300 hover:bg-white/8"
                 onClick={(e) => handleNavLinkClick(e, link.href)}
               >

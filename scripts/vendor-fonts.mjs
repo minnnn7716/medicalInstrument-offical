@@ -33,7 +33,7 @@ for (const family of families) {
       new URL(name, target),
       Buffer.from(await font.arrayBuffer())
     )
-    css = css.replaceAll(url, "/fonts/" + name)
+    css = css.replaceAll(url, "../public/fonts/" + name)
   }
   styles += css + "\n"
   console.log("Downloaded " + family)

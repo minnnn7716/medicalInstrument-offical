@@ -73,7 +73,7 @@ export default function Footer() {
         </li>
         <li className="pl-4">
           <Link
-            href="/contact-us"
+            href="/#contactUs"
             onClick={handleContactClick}
             className="inline-block transition duration-300 hover:-translate-y-1"
           >

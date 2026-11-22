@@ -1,0 +1,59 @@
+name: 部署 GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 取得原始碼
+        uses: actions/checkout@v4
+      - name: 設定 Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - name: 讀取 Pages 設定
+        id: pages
+        uses: actions/configure-pages@v5
+      - name: 安裝依賴
+        run: npm ci
+      - name: 檢查程式碼
+        run: npm run lint -- --max-warnings=0
+      - name: 建置靜態網站
+        run: npm run build
+        env:
+          NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}
+      - name: 檢查型別
+        run: npm run typecheck
+      - name: 驗證頁面、圖片、字型與子路徑
+        run: npm run test:static
+      - name: 上傳靜態網站
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: 發布至 GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
