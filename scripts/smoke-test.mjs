@@ -1,34 +1,16 @@
-import { spawn } from "node:child_process"
-const port = "3100"
-const server = spawn(
-  process.execPath,
-  ["node_modules/next/dist/bin/next", "start", "--port", port],
-  { stdio: ["ignore", "pipe", "pipe"], windowsHide: true }
-)
-let output = ""
-server.stdout.on("data", (d) => (output += d))
-server.stderr.on("data", (d) => (output += d))
+import { createStaticServer } from "./serve-static.mjs"
+import { verifyPreview } from "./verify-preview.mjs"
+
+const { server, basePath } = await createStaticServer()
 try {
   await new Promise((resolve, reject) => {
-    const timeout = setTimeout(() => {
-      clearInterval(timer)
-      reject(new Error(output || "Server startup timed out"))
-    }, 30000)
-    const timer = setInterval(() => {
-      if (output.includes("Ready")) {
-        clearInterval(timer)
-        clearTimeout(timeout)
-        resolve()
-      }
-    }, 200)
-    server.on("exit", (code) => {
-      clearInterval(timer)
-      clearTimeout(timeout)
-      reject(new Error("Server exited: " + code + "\n" + output))
-    })
+    server.once("error", reject)
+    server.listen(0, "127.0.0.1", resolve)
   })
-  process.argv[2] = "http://127.0.0.1:" + port
-  await import("./verify-preview.mjs")
+  const port = server.address().port
+  await verifyPreview("http://127.0.0.1:" + port + basePath + "/")
 } finally {
-  server.kill()
+  await new Promise((resolve, reject) =>
+    server.close((error) => (error ? reject(error) : resolve()))
+  )
 }

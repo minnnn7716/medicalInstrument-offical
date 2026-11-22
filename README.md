@@ -28,14 +28,14 @@ npm run dev
 
 啟動後開啟 [http://localhost:3000](http://localhost:3000)。
 
-正式環境請先完成建置，再啟動伺服器：
+本專案會匯出靜態網站至 `out/`。本機預覽請先完成建置，再啟動靜態伺服器：
 
 ```sh
 npm run build
 npm start
 ```
 
-`npm start` 需要已有成功建置的產物，不能取代開發模式的 `npm run dev`。
+`npm start` 只提供 `out/` 的靜態檔案，會自動辨識建置時的子路徑；日常開發請使用 `npm run dev`。
 
 ## 程式檢查
 
@@ -43,11 +43,12 @@ npm start
 npm run typecheck
 npm run lint
 npm run build
+npm run test:static
 ```
 
 ## 展示資料與表單行為
 
-聯絡表單只在瀏覽器中驗證欄位並顯示展示提示，不會寄送或儲存訊息。`/api/contact` 會以 HTTP 403 拒絕提交，沒有串接正式寄信服務或分析追蹤服務。此展示版不需要環境變數；本機 `.env` 檔案已排除 Git 追蹤。
+聯絡表單只在瀏覽器中驗證欄位並顯示展示提示，不會寄送或儲存訊息。網站不提供 `/api/contact` 後端路由，也沒有串接正式寄信服務或分析追蹤服務。本機開發不需要環境變數；本機 `.env` 檔案已排除 Git 追蹤。
 
 一般情境圖片與各頁 banner 保留素材照；Product Experience 的產品圖片改為展示用 SVG 圖片，Logo 也使用虛構品牌圖示。
 
@@ -63,14 +64,30 @@ node scripts/vendor-fonts.mjs
 
 展示產品插圖與品牌圖示均保留 SVG 原始檔，方便後續調整。
 
+## GitHub Pages 部署
+
+展示網址：[Medical Instrument](https://minnnn7716.github.io/medicalInstrument-offical/)
+
+推送到 `main` 後，GitHub Actions 會安裝依賴、執行檢查、建置與驗證靜態網站，再部署到 GitHub Pages。部署來源使用 GitHub Actions，工作流程位於 `.github/workflows/pages.yml`。
+
+部署時會依 Pages 設定傳入 `NEXT_PUBLIC_BASE_PATH`，讓導覽、圖片、字型及其他資源支援儲存庫子路徑。若要在本機驗證相同路徑：
+
+```sh
+npm run build:pages
+npm run test:static
+npm start
+```
+
+依終端機顯示的網址開啟預覽，預設為 [http://127.0.0.1:3000/medicalInstrument-offical/](http://127.0.0.1:3000/medicalInstrument-offical/)。靜態匯出不使用 Next.js 伺服器圖片最佳化，聯絡表單仍維持純展示模式。
+
 ## 分支與發布流程
 
-| 分支 | 用途 |
-| --- | --- |
-| `feature/Rolling-logo-vision` | Logo 捲動動畫原型 |
-| `feature/first-build` | 網站初版、元件整理與表單提示等開發節點 |
-| `release/1.0.0` | 整合功能、展示版內容與啟動設定 |
-| `main` | 合併 release 後的完成版本 |
+| 分支                          | 用途                                   |
+| ----------------------------- | -------------------------------------- |
+| `feature/Rolling-logo-vision` | Logo 捲動動畫原型                      |
+| `feature/first-build`         | 網站初版、元件整理與表單提示等開發節點 |
+| `release/1.0.0`               | 整合功能、展示版內容與啟動設定         |
+| `main`                        | 合併 release 後的完成版本              |
 
 Git 歷程保留功能開發、release 整合及合併回主線的節點。維護與啟動指令不會自動推送或部署網站。
 
